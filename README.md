@@ -34,7 +34,7 @@ When working in code and accessing a collection which may or may not be empty, i
 
 ##### Non-essential Values
 
-It may also be the case that you want to hold information fields (variables) that are not necessarily filled in, such as non-essential information fields for a user account:
+It may also be the case that you want to hold information fields (instances) that are not necessarily filled in, such as non-essential information fields for a user account:
 
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-optionals-reading/learn_signup.png)  
 —From the *Learn.co* sign-up page.
@@ -43,7 +43,7 @@ In order to hold the potential that an information field is not filled out (i.e.
 
 #### `nil` in Swift
 
-The Swift programming language is a "[strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)" language, meaning that object typing is enforced during the compile stage in order to reduce the risk of errors during run-time. Since `nil` [is its own special type](http://stackoverflow.com/questions/24043589/null-nil-in-swift-language), the Swift compiler will not allow it to be assigned to a variable of any specified class type.
+The Swift programming language is a "[strongly typed](https://en.wikipedia.org/wiki/Strong_and_weak_typing)" language, meaning that object typing is enforced during the compile stage in order to reduce the risk of errors during run-time. Since `nil` [is its own special type](http://stackoverflow.com/questions/24043589/null-nil-in-swift-language), the Swift compiler will not allow it to be assigned to an instance of any specified class type.
 
 ```swift
 var twitter: String = nil     // error
@@ -51,24 +51,24 @@ var twitter: String = nil     // error
 
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-optionals-reading/assign_nil_to_non_optional_error.png)
 
-So, how can we assign the absence of a value to a variable that *cannot* contain "nothing"? Enter **Optionals**.
+So, how can we assign the absence of a value to an instance that *cannot* contain "nothing"? Enter **Optionals**.
 
 ## Optionals
 
 Swift handles `nil` compatibility by automatically generating what is called the "optional-type" of every possible class. The language handles this distinction with the syntax of appending a `?` ("question mark") to the end of the class name (though you may also see `Optional<T>` or `Optional<Element>` floating around the internet). So, if we have a class `SomeClass`, its optional type will be represented as `SomeClass?`.
 
-This "optional" types provides a "wrapper" for the class that can encapsulate `nil`. It essentially reads as *an-instance-of-SomeClass-or-nil*, as opposed to the normal *definitely-and-only-an-instance-of-SomeClass*. It's important to understand the distinction here: **a class's type and its optional type are not the same type.** An instance of the `SomeClass?` optional *cannot* be assigned to a variable of `SomeClass` without first being "unwrapped" from the potential that it actually contains `nil`. The term "unwrapping" effectively means "handling the `nil` case".
+This "optional" types provides a "wrapper" for the class that can encapsulate `nil`. It essentially reads as *an-instance-of-SomeClass-or-nil*, as opposed to the normal *definitely-and-only-an-instance-of-SomeClass*. It's important to understand the distinction here: **a class's type and its optional type are not the same type.** An instance of the `SomeClass?` optional *cannot* be assigned to an instance of `SomeClass` without first being "unwrapped" from the potential that it actually contains `nil`. The term "unwrapping" effectively means "handling the `nil` case".
 
 The optional is defining the expectation that an object will be of a specific class but without committing to it actually having any contents. It's like having presents under a Christmas tree before Christmas Day: there's every expectation that underneath the colorful box-shaped pieces of wrapping paper there resides a plethora of highly-anticipated presents. However, without being able to open those presents until the appropriate time, we can't be *certain* that within the paper there is actually anything other than thin air. For all that we explicitly know until Christmas morning, each one of those presents could actually be a cruel trick:
 
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-optionals-reading/wrappingpaperdesk.gif)  
 —Jim pranking Dwight in *The Office*. Don't be like Dwight.
 
-In order to certify that an optional does *not* contain `nil`, we first have to "unwrap" it.
+Like opening the box that holds [Schrödinger's cat](https://youtu.be/itQVDA6_TME?t=1m27s), in order to certify that an optional does *not* contain `nil` we first have to "unwrap" it.
 
 ### Unwrapping Optionals
 
-In Swift, the term "unwrapping" is used in reference to optionals to mean some process of detecting whether the optional contains `nil` or whether it contains an object of the class to which it is associated. It also is the way in which Swift requires developers to think of the `nil` case, defining a behavior in the case that that a variable has nothing in it.
+In Swift, the term "unwrapping" is used in reference to optionals to mean some process of detecting whether the optional contains `nil` or whether it contains an object of the class to which it is associated. It also is the way in which Swift requires developers to think of the `nil` case, defining a behavior in the case that an instance has nothing in it.
 
 There is a variety of means to do this within Swift—the two most basic of which are below:
 
@@ -95,7 +95,7 @@ print("City: \(city)")
 print("Twitter: \(twitter)")
 ```
 
-However, this will treat the `phone`, `city`, and `twitter` variables like the optionals that they are, printing:
+However, this will treat the `phone`, `city`, and `twitter` instances like the optionals that they are, printing:
 
 ```
 First Name: Jenny
@@ -171,7 +171,7 @@ City: New York
 
 Since the `twitter` optional was not set and contained `nil`, the `if let` statement failed causing its `else` statement to run. 
 
-Can you see how optional unwrapping forced us to make a better program? It required us to think about what we should do when the variables are `nil`. That's the power and goal of Optionals in Swift—that it allows significantly less ambiguity in our code and reduces the problems caused by `nil`.
+Can you see how optional unwrapping forced us to make a better program? It required us to think about what we should do when the instances are `nil`. That's the power and goal of Optionals in Swift—that it allows significantly less ambiguity in our code and reduces the problems caused by `nil`.
 
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-optionals-reading/the-lord-of-the-rings-aragorn-vs-nazgul-o.gif)  
 —Aragorn, unwrapping a `nil` optional.
@@ -180,7 +180,7 @@ Can you see how optional unwrapping forced us to make a better program? It requi
 
 There are times when you as the developer can *guarantee* that an optional will *always* contain an object of the expected type (and not ever `nil`). In these rare situations it is a lot cleaner to explicitly tell the compiler that you're *certain* the optional contains an object. **Be careful with this syntax because if you're wrong, you'll experience a run-time crash.**
 
-Explicit unwrapping of optionals is performed using a **trailing** `!` ("exclamation point"). **Note:** *A leading* `!` *is the "negation operator" which inverts a boolean.* It can be placed **after** a variable to unwrap it:
+Explicit unwrapping of optionals is performed using a **trailing** `!` ("exclamation point"). **Note:** *A leading* `!` *is the "negation operator" which inverts a boolean.* It can be placed **after** an instance to unwrap it:
 
 ```swift
 let phone: String? = "867-5309"
