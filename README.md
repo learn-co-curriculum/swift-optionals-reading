@@ -235,4 +235,5 @@ And then promptly crash.
 ![](https://curriculum-content.s3.amazonaws.com/swift/swift-optionals-reading/explicity_unwrap_nil_optional_error.png)
 
 *With great power comes great responsibility.* In general, it's best to avoid using `!` to unwrap optionals.
-<a href='https://learn.co/lessons/swift-optionals-reading' data-visibility='hidden'>View this lesson on Learn.co</a>
+
+View <a href='https://learn.co/lessons/swift-optionals-reading' data-visibility='hidden'>Swift Optional Reading</a> on Learn.co and start learning to code for free.
