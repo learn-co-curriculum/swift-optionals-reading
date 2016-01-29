@@ -236,4 +236,5 @@ And then promptly crash.
 
 *With great power comes great responsibility.* In general, it's best to avoid using `!` to unwrap optionals.
 
-View <a href='https://learn.co/lessons/swift-optionals-reading' data-visibility='hidden'>Swift Optional Reading</a> on Learn.co and start learning to code for free.
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/swift-optionals-reading' title='Swift Optional Reading'>Swift Optional Reading</a> on Learn.co and start learning to code for free.</p>
