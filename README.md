@@ -52,7 +52,7 @@ myString = nil;     // Totally valid
 
 That is, even though `myString` is defined to be an `NSString`, it can really be either a string or nil.
 
-Swift takes type-safety a step further — it treats `nil` [as its own special type](http://stackoverflow.com/questions/24043589/null-nil-in-swift-language), and the Swift compiler will not allow to assign it to just any variable.
+Swift takes type-safety a step further — it treats `nil` [as its own special type](http://stackoverflow.com/questions/24043589/null-nil-in-swift-language), and the Swift compiler will not allow us to assign it to just any variable.
 
 ```swift
 var twitter: String = nil     // error
@@ -238,3 +238,5 @@ And then promptly crash.
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/swift-optionals-reading' title='Swift Optional Reading'>Swift Optional Reading</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/swift-optionals-reading'>Optionals</a> on Learn.co and start learning to code for free.</p>
